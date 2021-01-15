@@ -1,0 +1,131 @@
+body,
+div,
+form,
+input,
+select,
+textarea,
+p {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: white;
+    line-height: 22px;
+}
+
+h1 {
+    margin: 15px 0;
+    font-weight: 400;
+}
+
+.testbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    padding: 3px;
+}
+
+form {
+    width: 92%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.69);
+    margin-top: 69%;
+}
+
+input,
+select,
+textarea {
+    margin-bottom: 10px;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    outline: none;
+}
+
+input {
+    width: calc(100% - 10px);
+    padding: 5px;
+    background-color: rgba(96, 96, 96, 0.7);
+}
+
+select {
+    width: 100%;
+    padding: 7px 0;
+    background: transparent;
+}
+
+textarea {
+    width: calc(100% - 2px);
+    padding: 5px;
+}
+
+.item {
+    position: relative;
+    margin: 10px 0;
+}
+
+.item:hover p,
+input:hover,
+select:hover,
+.status:hover input {
+    box-shadow: none;
+}
+
+.status-item input,
+.status-item span {
+    width: auto;
+    vertical-align: middle;
+}
+
+.status-item input {
+    margin: 0;
+}
+
+.status-item span {
+    margin: 0 20px 0 5px;
+}
+
+.item i {
+    right: 1%;
+    top: 30px;
+    z-index: 1;
+}
+
+.btn-block {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    width: auto;
+    padding: 10px;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #660000;
+    color: white;
+}
+
+@media (min-width: 568px) {
+    .name-item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .name-item input {
+        width: calc(50% - 20px);
+    }
+}
+
+ ::placeholder {
+    color: whitesmoke;
+}
