@@ -83,7 +83,7 @@ body {
 }
 
 ::selection {
-    background-color: #3498db;
+    background-color: white;
     color: #ffffff;
     text-shadow: none;
 }
@@ -93,7 +93,7 @@ a {
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    color: #3498db;
+    color: white;
 }
 
 a:hover {
@@ -303,7 +303,7 @@ p {
 }
 
 .text-theme {
-    color: #3498db;
+    color: white;
 }
 
 .text--capitalize {
@@ -357,7 +357,7 @@ p {
 }
 
 .higlighted-style1 {
-    background-color: #3498db;
+    background-color: white;
     color: #fff;
     padding: 5px 0;
 }
@@ -370,7 +370,7 @@ p {
 
 .higlighted-style3 {
     background-color: #f9f9f9;
-    color: #3498db;
+    color: white;
     padding: 5px 0;
 }
 
@@ -384,7 +384,7 @@ p {
 }
 
 .color-theme {
-    color: #3498db !important;
+    color: white !important;
 }
 
 .color-white {
@@ -828,23 +828,23 @@ section {
 /* Borders */
 
 .border-all {
-    border: 1px solid #3498db;
+    border: 1px solid white;
 }
 
 .border-top {
-    border-top: 1px solid #3498db;
+    border-top: 1px solid white;
 }
 
 .border-bottom {
-    border-bottom: 1px solid #3498db;
+    border-bottom: 1px solid white;
 }
 
 .border-right {
-    border-right: 1px solid #3498db;
+    border-right: 1px solid white;
 }
 
 .border-left {
-    border-left: 1px solid #3498db;
+    border-left: 1px solid white;
 }
 
 
@@ -1076,7 +1076,7 @@ section {
 \*------------------------------------*/
 
 .bg-theme {
-    background-color: #3498db !important;
+    background-color: white !important;
 }
 
 .bg-gray {
@@ -1132,7 +1132,7 @@ section {
 }
 
 .bg-overlay-theme:before {
-    background-color: #3498db;
+    background-color: white;
     opacity: 0.7;
 }
 
@@ -1222,7 +1222,7 @@ section {
 
 .bg-peter-river {
     color: #ffffff;
-    background-color: #3498db !important;
+    background-color: white !important;
 }
 
 .bg-belize-hole {
@@ -1438,7 +1438,7 @@ section {
 /* Button Primary */
 
 .btn--primary {
-    background-color: #3498db;
+    background-color: white;
     color: #ffffff;
     border: none;
 }
@@ -1462,9 +1462,9 @@ section {
 .btn--secondary:active,
 .btn--secondary:focus,
 .btn--secondary:hover {
-    background-color: #3498db;
+    background-color: white;
     color: #ffffff;
-    border-color: #3498db;
+    border-color: white;
 }
 
 
@@ -1480,9 +1480,9 @@ section {
 .btn--white:active,
 .btn--white:focus,
 .btn--white:hover {
-    background-color: #3498db;
+    background-color: white;
     color: #ffffff;
-    border-color: #3498db;
+    border-color: white;
 }
 
 
@@ -1511,16 +1511,16 @@ section {
 }
 
 .btn--bordered.btn--primary {
-    color: #3498db;
-    border-color: #3498db;
+    color: white;
+    border-color: white;
 }
 
 .btn--bordered.btn--primary:active,
 .btn--bordered.btn--primary:focus,
 .btn--bordered.btn--primary:hover {
     color: #ffffff;
-    background-color: #3498db;
-    border-color: #3498db;
+    background-color: white;
+    border-color: white;
 }
 
 .btn--bordered.btn--secondary {
@@ -1544,7 +1544,7 @@ section {
 .btn--bordered.btn--white:active,
 .btn--bordered.btn--white:focus,
 .btn--bordered.btn--white:hover {
-    color: #3498db;
+    color: white;
     background-color: #ffffff;
     border-color: #ffffff;
 }
@@ -1559,8 +1559,8 @@ section {
 .btn--white.btn--secondary:focus,
 .btn--white.btn--secondary:hover {
     color: #ffffff;
-    background-color: #3498db;
-    border-color: #3498db;
+    background-color: white;
+    border-color: white;
 }
 
 .bg-overlay-theme .btn--primary,
@@ -1572,11 +1572,11 @@ section {
 
 .portfolio-filter li a.active-filter,
 .portfolio-filter li a:hover {
-    color: #3498db;
+    color: white;
 }
 
 .navbar-toggle {
-    border-color: #3498db;
+    border-color: white;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -1608,7 +1608,7 @@ section {
 }
 
 .form-control:focus {
-    border-color: #3498db;
+    border-color: white;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -2137,7 +2137,7 @@ section {
         top: 0;
     }
     .navbar-toggle .icon-bar {
-        background-color: #3498db;
+        background-color: white;
     }
     .header-fixed .navbar.affix .navbar-nav>li>a {
         color: #ffffff;
@@ -2157,7 +2157,7 @@ section {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     .navbar-toggle {
-        border-color: #3498db;
+        border-color: white;
         -moz-border-radius: 0;
         -webkit-border-radius: 0;
         border-radius: 0;
@@ -2214,7 +2214,7 @@ section {
         float: left;
     }
     .navbar-toggle {
-        border-color: #3498db;
+        border-color: white;
         -moz-border-radius: 0;
         -webkit-border-radius: 0;
         border-radius: 0;
@@ -2222,7 +2222,7 @@ section {
         display: block;
     }
     .navbar-toggle .icon-bar {
-        background-color: #3498db;
+        background-color: white;
     }
     .navbar-fixed-top .navbar-collapse {
         overflow: scroll !important;
@@ -2261,7 +2261,7 @@ section {
         padding-top: 0;
     }
     .navbar-toggle .icon-bar {
-        background-color: #3498db;
+        background-color: white;
     }
     .navbar-nav>li:after {
         display: none;
@@ -2467,7 +2467,7 @@ section {
 }
 
 .testimonial-panel:hover {
-    background-color: #3498db;
+    background-color: white;
     cursor: pointer;
 }
 
@@ -2519,7 +2519,7 @@ section {
 }
 
 .feature-panel .feature--icon {
-    color: #3498db;
+    color: white;
     font-size: 47px;
     line-height: 1;
     margin-bottom: 40px;
@@ -2609,18 +2609,18 @@ section {
     line-height: 42px;
     text-align: center;
     border-radius: 50%;
-    color: #3498db;
+    color: white;
     font-family: 'Open Sans', sans-serif;
     font-size: 24px;
-    border: 2px solid #3498db;
+    border: 2px solid white;
     -webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
 
 .feature-left-circle .feature-panel:hover .feature--icon {
-    background: #3498db;
-    border-color: #3498db;
+    background: white;
+    border-color: white;
     color: #ffffff;
 }
 
@@ -2959,7 +2959,7 @@ section {
 }
 
 .carousel-navs .owl-controls .owl-nav [class*=owl-]:hover {
-    color: #3498db;
+    color: white;
     background-color: transparent;
 }
 
@@ -3114,7 +3114,7 @@ section {
 }
 
 .slider-theme.slider-dots .owl-controls .owl-dots .owl-dot span {
-    border-color: #3498db;
+    border-color: white;
 }
 
 
@@ -3189,7 +3189,7 @@ section {
 }
 
 .landing-demos .portfolio-title:hover h4 {
-    color: #3498db;
+    color: white;
 }
 
 .landing-demos .portfolio-img {
@@ -3271,7 +3271,7 @@ section {
 
 .portfolio-filter li a.active-filter,
 .portfolio-filter li a:hover {
-    color: #3498db;
+    color: white;
 }
 
 
@@ -3496,11 +3496,11 @@ body.page-dark {
 .page-dark .btn--primary:hover {
     background-color: #f9f9f9;
     border-color: #f9f9f9;
-    color: #3498db;
+    color: white;
 }
 
 .page-dark .testimonial-panel:hover {
-    background-color: #3498db;
+    background-color: white;
 }
 
 

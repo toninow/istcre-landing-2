@@ -24,20 +24,89 @@
 	<link href="assets/css/form.css" rel="stylesheet">
 	<link href="assets/css/counter.css" rel="stylesheet">
 	<link href="assets/css/footer.css" rel="stylesheet">
-
-
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 	<!--[if lt IE 9]>
       <script src="assets/js/html5shiv.js"></script>
       <script src="assets/js/respond.min.js"></script>
     <![endif]-->
-
 	<!-- Document Title
     ============================================= -->
 	<title>FORMULARIO - ISTCRE - LANDING</title>
+
+	<!--sweet alert============================================= -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
 </head>
 
 <body class="body-scroll">
+	<a id="button"></a>
+	<?php
+	session_start();
+	include('./config/config.php');
+	//Generación de código ramdom para CSRF Token
+	if (empty($_SESSION['token'])) {
+		$_SESSION['token'] = bin2hex(random_bytes(32));
+	}
+	if (isset($_POST['sendForm'])) {
+		//Verificamos el código generado
+		if (!empty($_POST['oftoken'])) {
+			if (hash_equals($_SESSION['token'], $_POST['oftoken'])) {
+				$name = $_POST['userFirstName'];
+				$lname = $_POST['userLastName'];
+				$ci = $_POST['ci'];
+				$phone = $_POST['phone'];
+				$career = $_POST['career'];
+				$email = $_POST['userEmail'];
+				
+
+
+				if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+					$state = '0';
+					$query = mysqli_query($con, "INSERT INTO tblcontact(userFirstName, userLastName, ci, phone, career, userEmail, active) 
+					VALUES
+            		('$name','$lname', '$ci', '$phone', '$career', '$email', '$state')");
+					if ($query) :
+						echo '<script>
+              function alerta(){
+               swal({
+                 title: "Tu formulario ha sido enviado",
+                 text: "muy pronto recibirás una respuesta",
+                 type: "success"
+               });
+              }
+              alerta();                   
+              </script>';
+						unset($_SESSION['token']);
+					else :
+						echo '<script>
+           function alerta(){
+            swal({
+              title: "¡ERROR!",
+              text: "Ha ocurrido un error, intenta de nuevo por favor",
+              type: "error",
+            });
+           }
+           alerta();                   
+           </script>';;
+
+					endif;
+				} else {
+					echo '<script>
+          function alerta(){
+           swal({
+             title: "¡ERROR!",
+             text: "El email que has ingresado no es correcto",
+             type: "error",
+           });
+          }
+          alerta();                   
+          </script>';
+				}
+			}
+		}
+	}
+	?>
 
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0" nonce="24b7Ls6D"></script>
@@ -59,7 +128,7 @@
 						</button>
 						<a class="logo" href="index.html">
 							<img style="width: 120px; height: 120px" class="logo-dark" src="assets/images/logo/logo-red.png" alt="appy Logo">
-							<img class="logo-light" src="assets/images/logo/logo-light.png" alt="appy Logo">
+							<img style="width: 60px; height: 60px" class="logo-light" src="assets/images/logo/logo.png" alt="appy Logo">
 						</a>
 					</div>
 					<div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
@@ -103,7 +172,48 @@
 							</div>
 						</div>
 						<div class="slide--holder" style="margin-top: 17%;">
-							<?php include "form.html"; ?>
+							<div class="testbox">
+								<div class="row">
+									<form method="post" onsubmit="return validarFormulario(this);">
+										<h1 style="color: white;">¿NECESITAS MÁS <br> INFORMACIÓN?</h1>
+										<div st>
+											<h8 style="color: white;"> Déjanos tus datos y nos contactaremos contigo</h8>
+										</div>
+										<input type="hidden" name="oftoken" value="<?php echo htmlentities($_SESSION['token']); ?>" onkeyup="validar(this);" data-lengthMin="1" />
+										<div class="item" style="margin-bottom: 15%;">
+											<input style="text-transform: uppercase;" name="userFirstName" type="text" placeholder="Nombres" onkeyup="validar(this);" data-lengthMin="4" required />
+										</div>
+										<div class="item" style="margin-bottom: 15%;">
+											<input style="text-transform: uppercase;" name="userLastName" type="text" placeholder="Apellidos" onkeyup="validar(this);" data-lengthMin="4" required />
+										</div>
+										<div class="item" style="margin-bottom: 15%;">
+											<input name="ci" type="text" placeholder="ci/pasaporte" onkeyup="validar(this);" data-lengthMin="10" required />
+										</div>
+										<div class="item" style="margin-bottom: 15%;">
+											<input name="phone" type="number" placeholder="Teléfono" onkeyup="validar(this);" data-lengthMin="7" required />
+										</div>
+										<div class="item" style="margin-bottom: 15%;">
+											<input name="userEmail" type="email" placeholder="Correo Electrónico" onkeyup="validar(this);" data-lengthMin="1" required />
+										</div>
+										<div style="width: 100%;">
+											<div class="item" style="margin-bottom: 15%;">
+												<select id="career" name="career" onkeyup="validar(this);" required>
+													<option style="background-color: rgba(96, 96, 96, 0.7); color: white;">Selecciona Carrera</option>
+													<option  value="EEM" style="background-color: rgba(96, 96, 96, 0.7); color: white;">Emergencias Médicas</option>
+													<option  value="GRD" style="background-color:rgba(96, 96, 96, 0.7); color: white;">Gestión de riesgos y desastres</option>
+												</select>
+											</div>
+										</div>
+										<div class="btn-block">
+											<input name="sendForm" type="submit" value="Enviar">
+										</div>
+									</form>
+									<div class="admission" style="margin-top: 25%; width: 92%">
+										<h3 style="color:#cccccc">FORMULARIO DE <br> ADMISIÓN</h3>
+										<button style="background-color: #660000; color:white; width:100%; height: 100%" type="submit" href="/">FORMULARIO</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<!-- .row end -->
@@ -163,7 +273,7 @@
 		</section>
 		<!-- #feature2 end -->
 
-	<div class="clearfix pt-100"></div>
+		<div class="clearfix pt-100"></div>
 
 
 		<!-- Feature #3
@@ -255,6 +365,11 @@
 	<script src="assets/js/plugins.js"></script>
 	<script src="assets/js/functions.js"></script>
 
+	<script src="assets/js/validations.js"></script>
+
 </body>
+
+
+
 
 </html>
